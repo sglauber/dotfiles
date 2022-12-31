@@ -4,13 +4,15 @@ import XMonad.Util.Loggers
 import XMonad.Util.SpawnOnce
 import XMonad.Util.EZConfig (additionalKeysP)
 
+import XMonad.Layout.Renamed
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
 
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Hooks.ManageHelpers 
 
 
 main :: IO ()
@@ -23,6 +25,7 @@ main = xmonad
     toggleStrutsKey :: XConfig Layout -> (KeyMask, KeySym)
     toggleStrutsKey XConfig{ modMask = m } = (m, xK_b)
 
+-- Pretty printer
 myXmobarPP :: PP
 myXmobarPP = def
     { ppSep             = magenta " • "
@@ -71,17 +74,18 @@ myFocusedBorderColor = "magenta"
 
 myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
   where
-    threeCol = magnifiercz' 1.3 (ThreeColMid nmaster delta ratio)
-    tiled    = Tall nmaster delta ratio
-    nmaster  = 1      -- Default number of windows in the master pane
-    ratio    = 1/2    -- Default proportion of screen occupied by master pane
-    delta    = 3/100  -- Percent of screen to increment by when resizing panes
+    threeCol = renamed [Replace "ThreeCol"] $ magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
+    tiled   = Tall nmaster delta ratio
+    nmaster = 1      -- Default number of windows in the master pane
+    ratio   = 1/2    -- Default proportion of screen occupied by master pane
+    delta   = 3/100  -- Percent of screen to increment by when resizing panes
 
 myConfig = def
   {
     terminal = myTerminal
     ,modMask = myModMask
     ,layoutHook = myLayout
+    ,manageHook = myManageHook
     ,borderWidth = myBorderWidth
     ,normalBorderColor  = myBorderColor
     ,focusedBorderColor = myFocusedBorderColor
@@ -92,3 +96,9 @@ myConfig = def
     , ("M-f"  , spawn "qutebrowser"               )
     ]
 
+-- Hooks
+myManageHook :: ManageHook
+myManageHook = composeAll
+    [ className =? "Gimp" --> doFloat
+    , isDialog            --> doFloat
+    ]
