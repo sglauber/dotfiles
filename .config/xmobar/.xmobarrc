@@ -1,8 +1,9 @@
 Config { overrideRedirect = False
        , font     = "xft:FiraCode Nerd Font-10"
+       , additionalFonts  = ["xft:FontAwesome-9"]
        , bgColor  = "black"
        , fgColor  = "#f8f8f2"
-       , position = TopW L 100
+       , position = TopW L 90
        , commands = [ Run Cpu
                         [ "-L", "3"
                         , "-H", "50"
