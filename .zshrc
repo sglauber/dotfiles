@@ -1,24 +1,16 @@
-# Path to oh-my-zsh installation
+# ENVVARS Exports
 export ZSH="$HOME/.oh-my-zsh"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-###########
-# Updates #
-###########
-
+# Updates
 zstyle ':omz:update' mode reminder
 zstyle ':omz:update' frequency 15
 
-#########
-# Shell #
-#########
-
+# Shell
 DISABLE_MAGIC_FUNCTIONS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-###########
-# Plugins #
-###########
-
+# Plugins
 plugins=(
 	git
 	yarn
@@ -30,10 +22,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-#################
-# User settings #
-#################
-
+# User settings
 export LANG=en_US.UTF-8
 
 # Editor config for local and remote sessions
@@ -44,10 +33,8 @@ else
 fi
 
 # Aliases
-alias config='/usr/bin/git --git-dir=/home/sglauber/.dotfiles/ --work-tree=/home/sglauber'
+alias config="/usr/bin/git --git-dir='$HOME'/.dotfiles/ --work-tree=$HOME"
 
+# Themes
 # ZSH_THEME="robbyrussell"
-
-# Load Starship theme
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
