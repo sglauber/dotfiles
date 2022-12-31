@@ -55,7 +55,7 @@ installPackages(){
   xmobar  \
   xmonad-contrib \
   # browser & media
-  yay -S mpv qutebrowser google-chrome-stable
+  yay -S ytp-dl mpv qutebrowser google-chrome-stable
 }
 
 
