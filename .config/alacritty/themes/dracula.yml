@@ -1,23 +1,18 @@
-# Dracula theme for Alacritty
-# https://draculatheme.com/alacritty
-#
-# Color palette
-# https://spec.draculatheme.com
-#
-# Template
-# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
-
 colors:
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: '#1E1E2E'
+    foreground: '#CDD6F4'
     bright_foreground: '#ffffff'
+  
+  # Cursor colors
   cursor:
     text: CellBackground
     cursor: CellForeground
   vi_mode_cursor:
     text: CellBackground
     cursor: CellForeground
+
+  # Search colors
   search:
     matches:
       foreground: '#44475a'
@@ -28,6 +23,8 @@ colors:
   footer_bar:
     background: '#282a36'
     foreground: '#f8f8f2'
+
+  # Keyboard regex hints
   hints:
     start:
       foreground: '#282a36'
@@ -35,12 +32,16 @@ colors:
     end:
       foreground: '#f1fa8c'
       background: '#282a36'
+
+  # Selection colors
   line_indicator:
     foreground: None
     background: None
   selection:
     text: CellForeground
     background: '#44475a'
+
+  # Normal colors
   normal:
     black: '#21222c'
     red: '#ff5555'
@@ -50,6 +51,8 @@ colors:
     magenta: '#ff79c6'
     cyan: '#8be9fd'
     white: '#f8f8f2'
+
+  # Bright colors
   bright:
     black: '#6272a4'
     red: '#ff6e6e'
