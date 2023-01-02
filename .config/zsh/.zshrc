@@ -1,7 +1,7 @@
 # History settings
-HISTFILE="$ZDOTDIR/.zsh_history"
-HISTFILESIZE=5000 # Set maximum size of history file
-HISTSIZE=1000 # Maximum size of history (kept in memory)
+HISTFILE="$XDG_CACHE_HOME/.zsh_history"
+HISTFILESIZE=10000 # Set maximum size of history file
+HISTSIZE=10000 # Maximum size of history (kept in memory)
 SAVEHIST=$HISTSIZE
 
 autoload -Uz compinit && compinit
@@ -13,7 +13,6 @@ source $ALIASDIR
 
 if [ -d $ZDOTDIR/plugins ] ; then
   for f in $ZDOTDIR/plugins/*/*?.zsh ; do
-    echo "Sourcing: $f"
     [ -f "$f" ] && . "$f"
   done
   unset f
@@ -21,7 +20,6 @@ fi
 
 # Set options
 setopt extendedhistory
-setopt correctall
 setopt hist_ignore_all_dups
 bindkey -v
 
