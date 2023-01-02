@@ -1,0 +1,40 @@
+# zsh
+alias kitty="kitty --single-instance" 		# kitty attach new instances as windows
+alias xpropc='xprop | grep WM_CLASS'		# xprop - get classname
+
+# git --bare 
+alias config="/usr/bin/git --git-dir='$DOTFILESDIR' --work-tree='$HOME'"
+
+# tree
+alias tree="exa --tree --level=2"
+
+# ls
+alias ls="exa --icons --group-directories-first"
+alias la="exa --icons --all --group-directories-first"
+alias ll="exa --icons --long --header --group-directories-first"
+alias lla="exa --icons --long --header --all --group-directories-first"
+
+# cp
+alias cp='cp -iv'
+
+# mv
+alias mv='mv -iv'
+
+# rm
+alias rm='rm -iv'
+
+# cat
+alias cat="bat"
+
+# fonts
+alias fonts='fc-cache -f -v'
+
+# yay
+alias yayi='yay -S'     # install
+alias yayhi='yay -Ql'   # Yay Has Installed - what files where installed in a package
+alias yays='yay -Ss'    # search
+alias yayu='yay -Syu'   # update
+alias yayr='yay -R'     # remove package but not dependencies
+alias yayrr='yay -Rs'   # remove package with unused dependencies by other softwares
+alias yayrc='yay -Sc'   # remove yay's cache
+alias yayls="yay -Qe" 	# list explicitly installed package
