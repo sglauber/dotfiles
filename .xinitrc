@@ -34,7 +34,7 @@ fi
 
 # Set up an icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
- --expand true --width 10 --transparent true --tint 0x5f5f5f --height 20 &
+ --expand true --width 10 --transparent true --alpha 0 --tint 0xf --height 22 &
 
 # Set the default X cursor to the usual pointer
 xsetroot -cursor_name left_ptr
@@ -49,7 +49,7 @@ if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
 fi
 
-# Set a nice background
+# Set a nice background with feh
 ~/.fehbg &
 
 # Start some effects to rice up
