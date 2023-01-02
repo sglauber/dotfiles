@@ -43,7 +43,7 @@ if [ -x /usr/bin/nm-applet ] ; then
 fi
 
 # Set a nice background with feh
-~/.fehbg &
+feh --no-fehbg --bg-scale --randomize ~/Images/Wallpapers/* &
 
 # Start some effects to rice up
 picom --experimental-backends -b
