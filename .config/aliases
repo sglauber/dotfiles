@@ -1,12 +1,38 @@
-# zsh
-alias kitty="kitty --single-instance" 		# kitty attach new instances as windows
-alias xpropc='xprop | grep WM_CLASS'		# xprop - get classname
+#!usr/bin/env bash
+
+# cat
+alias cat="bat"
+
+# cp
+alias cp='cp -iv'
+
+# fonts
+alias fonts='fc-cache -f -v'
+
+# git
+alias gs='git status'
+alias gss='git status -s'
+alias ga='git add'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpt='git push --tag'
+alias gplo='git pull origin'
+alias gtd='git tag --delete'
+alias gtdr='git tag --delete origin'
+alias grb='git branch -r'                                                                           # display remote branch
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gr='git remote'
+alias grs='git remote show'
+alias gl='git log --pretty=oneline'
+alias glol='git log --graph --abbrev-commit --oneline --decorate'
+alias gsub="git submodule update --remote"                                                        # pull submodules
+alias gj="git-jump"    
 
 # git --bare 
 alias config="/usr/bin/git --git-dir='$DOTFILESDIR' --work-tree='$HOME'"
-
-# tree
-alias tree="exa --tree --level=2"
 
 # ls
 alias ls="exa --icons --group-directories-first"
@@ -14,27 +40,35 @@ alias la="exa --icons --all --group-directories-first"
 alias ll="exa --icons --long --header --group-directories-first"
 alias lla="exa --icons --long --header --all --group-directories-first"
 
-# cp
-alias cp='cp -iv'
-
 # mv
 alias mv='mv -iv'
+
+# neovim
+alias vim='nvim'
+alias vi='nvim'
+alias svim='sudoedit'
+alias dvim="vim -u /usr/share/nvim/archlinux.vim" # nvim with default config
 
 # rm
 alias rm='rm -iv'
 
-# cat
-alias cat="bat"
+# system 
+alias shutdown='sudo shutdown now'
+alias restart='sudo reboot'
+alias suspend='sudo pm-suspend'
 
-# fonts
-alias fonts='fc-cache -f -v'
+# tree
+alias tree="exa --tree --level=2"
 
 # yay
 alias yayi='yay -S'     # install
 alias yayhi='yay -Ql'   # Yay Has Installed - what files where installed in a package
-alias yays='yay -Ss'    # search
 alias yayu='yay -Syu'   # update
 alias yayr='yay -R'     # remove package but not dependencies
 alias yayrr='yay -Rs'   # remove package with unused dependencies by other softwares
 alias yayrc='yay -Sc'   # remove yay's cache
 alias yayls="yay -Qe" 	# list explicitly installed package
+
+# zsh
+alias kitty="kitty --single-instance" 		# kitty attach new instances as windows
+alias xpropc='xprop | grep WM_CLASS'		# xprop - get classname
