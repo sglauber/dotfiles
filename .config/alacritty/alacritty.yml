@@ -1,0 +1,49 @@
+import:
+  - ~/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml
+
+window:
+  padding:
+    x: 4
+    y: 4
+  #opacity: 0.8
+
+scrolling:
+  multiplier: 5
+  
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+      
+  italic:
+    family: VictorMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: VictorMono Nerd Font
+    style: Bold Italic
+  
+  size: 12.5
+  
+  draw_bold_text_with_bright_colors: false
+
+cursor:
+  style: Beam
+  unfocused_hollow: false
+
+key_bindings:
+  - { key: V,         mods: Control|Shift, action: Paste                       }
+  - { key: C,         mods: Control|Shift, action: Copy                        }
+  - { key: Key0,      mods: Control,       action: ResetFontSize               }
+  - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: L,         mods: Control,       action: ClearLogNotice              }
+  - { key: L,         mods: Control,       chars: "\x0c"                       }
+  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
+  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
+
+live_config_reload: true
