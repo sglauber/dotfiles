@@ -3,7 +3,7 @@ import:
 
 window:
   padding:
-    x: 4
+    x: 4 
     y: 4
   #opacity: 0.8
 

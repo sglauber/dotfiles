@@ -1,0 +1,93 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Prompt config
+format = "$username$hostname$character"
+
+# Right prompt config
+right_format="$all"
+
+# PS2 prompt
+continuation_prompt = "❯"
+
+[username] 
+style_user  = "#FCA17D"
+show_always = false
+format	= '[$user]($style)@'
+
+[hostname]
+ssh_only = true
+format = '[$hostname]($style)'
+trim_at = '.'
+
+[character]
+format 	= '$symbol '
+error_symbol  = "[](red)"
+success_symbol = "[](green)"
+vimcmd_symbol = '[](green)'
+vimcmd_replace_symbol = '[❮](yellow)'
+
+[directory]
+format = "[$path]($style)"
+read_only = ""
+truncation_length = 1
+truncation_symbol = "…/"
+home_symbol = " "
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Images" = " "
+"Videos" = " "
+".config" = ""
+
+[c]
+symbol = ""
+style = "#86BBD8"
+format = '[$symbol ($version)]($style)'
+
+[docker_context]
+symbol = " "
+style  = "#06969A"
+only_with_files = true
+format = '[$symbol$context]($style)'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+
+[git_branch]
+symbol = ""
+style  = "#FCA17D"
+ignore_branches = ['master', 'main']
+format = "[ on $symbol$branch]($style)"
+
+[git_status]
+style	= "#FCA17D"
+format	= '[( $all_status$ahead_behind )]($style)'
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[golang]
+symbol 	= ""
+style 	= "#FCA17D"
+format 	= '[$symbol ($version)]($style)'
+
+[haskell]
+symbol 	= ""
+style	= "#FCA17D"
+format 	= '[$symbol ($version)]($style)'
+
+[lua]
+symbol 	= ""
+style 	= "#FCA17D"
+format 	= '[$symbol ($version)]($style)'
+
+[nodejs]
+symbol 	= ""
+style 	= "#86BBD8"
+format 	= '[$symbol ($version)]($style)'
