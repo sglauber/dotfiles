@@ -1,0 +1,40 @@
+# cat
+alias cat='bat'
+
+# cp
+alias cp='cp -iv'
+
+# fonts
+alias fonts='fc-cache -f -v'
+
+# git
+alias config='/usr/bin/git --git-dir=$DOTFILESDIR --work-tree=$HOME'
+
+# ls
+alias ls='exa --icons --group-directories-first'
+alias la='exa --icons --all --group-directories-first'
+alias ll='exa --icons --long --header --group-directories-first'
+alias lla='exa --icons --long --header --all --group-directories-first'
+
+# mv
+alias mv='mv -iv'
+
+# neovim
+alias vim='nvim'
+alias vi='nvim'
+alias svim='sudoedit'
+alias dvim='vim -u /usr/share/nvim/archlinux.vim'	 # Load nvim with default config
+
+# rm
+alias rm='rm -iv'
+
+# system 
+alias shutdown='sudo shutdown now'
+alias restart='sudo reboot'
+alias suspend='sudo pm-suspend'
+
+# tree
+alias tree='exa --tree --level=2'
+
+# zsh
+alias xpropc='xprop | grep WM_CLASS'			 # xprop - get classname
