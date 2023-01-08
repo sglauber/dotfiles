@@ -7,3 +7,6 @@
 [submodule ".config/zsh/plugins/zsh-autosuggestions"]
 	path = .config/zsh/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "st"]
+	path = st
+	url = git@github.com:sglauber/st.git
