@@ -9,6 +9,7 @@ right_format="$all"
 
 # PS2 prompt
 continuation_prompt = "❯"
+command_timeout = 500
 
 [username] 
 style_user  = "#FCA17D"
@@ -28,7 +29,7 @@ vimcmd_symbol = '[](green)'
 vimcmd_replace_symbol = '[❮](yellow)'
 
 [directory]
-format = "[$path]($style)"
+format = "[$path ]($style)"
 read_only = ""
 truncation_length = 1
 truncation_symbol = "…/"
@@ -43,9 +44,9 @@ home_symbol = " "
 ".config" = ""
 
 [c]
-symbol = ""
+symbol = " "
 style = "#86BBD8"
-format = '[$symbol ($version)]($style)'
+format = '[$symbol($version) ]($style)'
 
 [docker_context]
 symbol = " "
@@ -58,7 +59,7 @@ detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 symbol = ""
 style  = "#FCA17D"
 ignore_branches = ['master', 'main']
-format = "[ on $symbol$branch]($style)"
+format = "[on $symbol$branch]($style)"
 
 [git_status]
 style	= "#FCA17D"
