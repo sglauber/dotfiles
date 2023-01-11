@@ -10,6 +10,17 @@ pacman --noconfirm -S archlinux-keyring >/dev/null 2>&1
 pacman --noconfirm --needed -S && pacman -Sy >/dev/null 2>&1
 pacman-key --populate archlinux >/dev/null 2>&1
 
+# Installing base packages to new root path
+pacstrap /mnt linux linux-firmware base base-devel nvim git 
+
+# Generate filesystem table and change root to new mountpoint
+genfstab -U /mnt >> /mnt/etc/fstab && arch-chroot /mnt
+
+# Generate localtime and clock settings
+ln -sf /usr/share/zoneinfo/America /etc/localtime 
+hwclock --systohc
+locale-gen
+
 username=""
 hostname=""
 password=""
@@ -44,7 +55,7 @@ pacman -S --noconfirm zsh
 # Add user
 useradd -m -g users -G users,audio,lp,optical,storage,video,wheel,games,power,scanner,network -s /bin/zsh $username
 
-# sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers
+sed -i '/%wheel ALL=(ALL:ALL) ALL/s/^#//' /etc/sudoers
 echo $password | sudo -u $username
 
 # Please wait...
@@ -106,6 +117,9 @@ sudo systemctl enable bluetooth
 # Enable Pipewire
 sudo systemctl --user enable pipewire
 sudo systemctl --user enable pipewire-pulse
+
+# Recreate ramdisk
+mkinitcpio -P
 
 # Reboot
 sudo reboot
