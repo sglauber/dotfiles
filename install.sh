@@ -39,7 +39,7 @@ tee -a /etc/hosts << EOF
 EOF
 
 # Install zsh
-pacman -S zsh --noconfirm
+pacman -S --noconfirm zsh
 
 # Add user
 useradd -m -g users -G users,audio,lp,optical,storage,video,wheel,games,power,scanner,network -s /bin/zsh $username
@@ -62,6 +62,7 @@ cd /tmp && git clone $yayrepo \
 
 # Download utilities packages
 yay -S --noconfirm  bluez \
+	tmux \
 	freerdp \
 	brave-bin  \
 	qutebrowser \
