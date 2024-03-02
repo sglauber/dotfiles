@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SLPTM=$( echo $RANDOM | cut -b 1 )
+sleep $SLPTM
+
+yay -Qu | wc -l
