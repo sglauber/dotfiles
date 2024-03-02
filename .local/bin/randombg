@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Define a function to find a random wallpaper
+find_random_wallpaper() {
+    local wallpaper_dir="$XDG_DATA_HOME/wallpapers"
+    if [[ ! -d "$wallpaper_dir" ]]; then
+        echo "Error: Wallpaper directory '$wallpaper_dir' does not exist."
+        return 1
+    fi
+    find "$wallpaper_dir" -type f | shuf -n1
+}
+
+# Set the wallpaper
+set_wallpaper() {
+    # Find a random wallpaper path
+    wallpaper_path=$(find_random_wallpaper)
+    if [[ $? -ne 0 ]]; then
+        # Handle error if finding wallpaper fails
+        return 1
+    fi
+
+    # Check if swaybg is already running
+    if ! pgrep -x swaybg >/dev/null 2>&1; then
+        # Start swaybg with the random wallpaper
+        swaybg -i "$wallpaper_path" -m fill &
+    else
+        # Killall instances and start it
+        killall swaybg >/dev/null 2>&1
+        swaybg -i "$wallpaper_path" -m fill &
+    fi
+}
+
+# Call the function
+set_wallpaper
+
