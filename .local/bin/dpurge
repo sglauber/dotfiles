@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# Function to stop and remove containers by name or all containers if no argument is provided.
+stop_and_remove_docker_containers() {
+  local search_string="$1"
+  local container_ids
+
+  if [ -n "$search_string" ]; then
+    # Use -a flag to include all containers, -q for quiet output, and --filter for name matching
+    container_ids=$(docker ps -aq --filter "name=$search_string")
+    echo "Stopping and removing containers with names containing '$search_string'..."
+  else
+    container_ids=$(docker ps -aq)
+    echo "Stopping and removing all containers..."
+  fi
+
+  if [ -n "$container_ids" ]; then
+    # Iterate through container IDs and handle potential errors
+    for id in $container_ids; do
+      if ! docker stop "$id" >/dev/null 2>&1; then
+        echo "Error: Failed to stop container $id." >&2
+        exit 1
+      fi
+
+      if ! docker rm "$id" >/dev/null 2>&1; then
+        echo "Error: Failed to remove container $id." >&2
+        exit 1
+      fi
+    done
+    echo "Containers stopped and removed."
+  else
+    echo "No containers found."
+  fi
+}
+
+# Main script
+case "$1" in
+-h | --help)
+  echo "Usage: stop_and_remove_containers [search_string]"
+  echo "Stops and removes Docker containers by name or all containers if no search string is provided."
+  echo "If search_string is specified, stops and removes containers with names containing it."
+  exit 0
+  ;;
+*)
+  # Check if docker command exists
+  if ! command -v docker >/dev/null 2>&1; then
+    echo "Error: docker command not found." >&2
+    exit 1
+  fi
+
+  # Prompt for confirmation before stopping all containers if interactive
+  if [ -z "$1" ] && [ -t 0 ]; then
+    read -r -p "Are you sure you want to stop and remove all containers? (y/N) " response
+    case "$response" in
+    [yY])
+      # Continue with script execution
+      ;;
+    *)
+      echo "Aborted."
+      exit 0
+      ;;
+    esac
+  fi
+
+  # Call the function with the first argument passed to the script
+  stop_and_remove_docker_containers "$1"
+  ;;
+esac
