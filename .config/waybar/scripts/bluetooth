@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Execute the bluetoothctl command and capture its output
+device_info=$(bluetoothctl show F8:DA:0C:24:01:86)
+
+# Extract the "Powered" value using grep and cut
+powered_value=$(echo "$device_info" | grep "Powered:" | cut -d' ' -f2)
+
+# Assign the boolean value to a variable based on the extracted value
+if [[ "$powered_value" == "yes" ]]; then
+  bluetoothctl power off
+else
+  bluetoothctl power on
+fi
