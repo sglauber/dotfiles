@@ -1,0 +1,19 @@
+# Set tab width
+--tabs=4
+
+# Highlighting theme `bat --list-themes`
+--theme="Monokai Extended"
+
+# Enable italics
+--italic-text=always
+
+# Disable automatic paging
+#--paging=never
+
+# Enable mouse scrolling support inside tmux
+#--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
+
+# Syntax mappings: map a certain filename pattern to a language.
+--map-syntax "*.ino:C++"
+--map-syntax ".ignore:Git Ignore"
+--map-syntax "*.phtml:php"
