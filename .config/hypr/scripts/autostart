@@ -1,0 +1,29 @@
+#!/usr/bin/sh
+
+# Applications that are meant to run on session start
+# Intended to be called from a WM startup script
+
+# notification daemon
+dunst &
+
+# set wallpaper
+randombg &
+
+# start terminal daemon
+foot --server &
+
+waybar &
+
+# polkit agent
+/usr/lib/polkit-kde-authentication-agent-1 
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# ensure that hyprland-portal get its required variables on startup
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+wl-paste --watch cliphist store &
+
+/usr/lib/xdg-desktop-portal-hyprland &
+sleep 2
+/usr/lib/xdg-desktop-portal &
