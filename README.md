@@ -3,7 +3,7 @@ Those are my dotfiles, I'm trying to keep it simple, and I hope you find somethi
 
 Here are some details about:
 
-<img src="./readme/corgi.webp" alt="" align="right" width="200px">
+<img src="./docs/assets/corgi.gif" alt="" align="right" width="350px">
 
 - **WM**                           : [hyprland](https://hyprland.org/) :art:
 - **Shell**                        : [zsh](https://wiki.archlinux.org/index.php/zsh) :shell:
