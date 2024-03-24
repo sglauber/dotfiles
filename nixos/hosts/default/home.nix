@@ -16,7 +16,8 @@
     google-chrome
     pulsemixer
     tmux
-    firefox
+    spotify
+    obs-studio
     pavucontrol
   ];
 
@@ -26,7 +27,7 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     # "nvim".source = /home/lonen/.config/neovim;
-
+    "nvim".source = ../../modules/home-manager/nvim;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -35,14 +36,23 @@
   };
 
   # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
   home.sessionVariables = {
     EDITOR = "neovim";
+    VISUAL = "neovim";
+    NODE_REPL_HISTORY = "~/.local/share/node_repl_history";
+    GOPATH = "~/.local/share/go";
+    CARGO_HOME = "~/.local/share/cargo";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.bash.enable = false;
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+  };
+  programs.git = {
+    userEmail = "glauber.silva14@gmail.com";
+    userName = "Glauber S";
+  };
 }

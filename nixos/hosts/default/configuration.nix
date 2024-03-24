@@ -9,7 +9,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./user.nix
-    inputs.home-manager.nixosModules.default
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -107,13 +106,6 @@
   main-user.enable = true;
   main-user.userName = "lonen";
 
-  # home-manager = {
-  #     extraSpecialArgs = { inherit inputs; };
-  #     useUserPackages = true;
-  #     useGlobalPkgs = true;
-  #     users = { "lonen" = import ./home.nix; };
-  # };
-
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
@@ -131,10 +123,13 @@
   };
 
   # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
     alacritty
+    swaybg
     bat
     gawk
     eza
@@ -142,6 +137,7 @@
     wezterm
     git
     git-lfs
+    gcc
     gnumake
     rofi
     ripgrep
@@ -156,6 +152,9 @@
     xclip
     luajitPackages.lua-lsp
     nil
+    delta
+    go
+    zathura
   ];
 
   virtualisation.docker.enable = true;
