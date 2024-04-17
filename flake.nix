@@ -9,11 +9,10 @@
       imports = [ ./hosts ];
 
       perSystem =
-        {
-          config,
-          pkgs,
-          system,
-          ...
+        { config
+        , pkgs
+        , system
+        , ...
         }:
         {
           devShells = {
@@ -114,3 +113,4 @@
       flake = false;
     };
   };
+}
