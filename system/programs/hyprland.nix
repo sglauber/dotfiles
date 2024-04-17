@@ -7,7 +7,7 @@
 
   # enable hyprland and required options
   programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
+    enable = true;
+    xwayland.enable = true;
   };
 }

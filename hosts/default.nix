@@ -15,9 +15,9 @@
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    anchor = nixosSystem { 
-        inherit specialArgs;
-        modules = desktop ++ laptop ++ [ inputs.agenix.nixosModules.default ] ++ [ ./anchor ];
+    anchor = nixosSystem {
+      inherit specialArgs;
+      modules = desktop ++ laptop ++ [inputs.agenix.nixosModules.default] ++ [./anchor];
     };
   };
 }

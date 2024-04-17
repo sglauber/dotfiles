@@ -1,33 +1,31 @@
 {
   description = "Lonen's Floquinhos";
 
-  outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-      imports = [ ./hosts ];
+      imports = [./hosts];
 
-      perSystem =
-        { config
-        , pkgs
-        , system
-        , ...
-        }:
-        {
-          devShells = {
-            default = pkgs.mkShell {
-              packages = [
-                pkgs.alejandra
-                pkgs.git
-                config.packages.repl
-              ];
-              name = "nixland";
-              DIRENV_LOG_FORMAT = "";
-            };
+      perSystem = {
+        config,
+        pkgs,
+        system,
+        ...
+      }: {
+        devShells = {
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.alejandra
+              pkgs.git
+              config.packages.repl
+            ];
+            name = "nixland";
+            DIRENV_LOG_FORMAT = "";
           };
-          formatter = pkgs.alejandra;
         };
+        formatter = pkgs.alejandra;
+      };
     };
 
   inputs = {
