@@ -1,9 +1,9 @@
 {
   pkgs,
-  config,
   ...
 }: {
   boot = {
+    bootspec.enable = true;
     initrd = {
       systemd.enable = true;
       supportedFilesystems = ["ntfs"];
