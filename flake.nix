@@ -106,6 +106,11 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
