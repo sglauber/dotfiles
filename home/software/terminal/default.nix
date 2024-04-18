@@ -18,5 +18,6 @@
     #./yazi
     ./xdg.nix
     #./zoxide.nix
+    ./zsh.nix
   ];
 }
