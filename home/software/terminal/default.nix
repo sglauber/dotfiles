@@ -3,7 +3,7 @@
     #./bat.nix
     #./bottom.nix
     #./cava.nix
-    #./cli.nix
+    ./cli.nix
     #./gpg.nix
     ./git.nix
     #./gitui.nix
