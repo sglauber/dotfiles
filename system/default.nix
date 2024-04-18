@@ -4,6 +4,7 @@ let
     ./services
     ./core
     ./hardware
+    ./nix
   ];
 
   laptop = desktop;
