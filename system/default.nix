@@ -3,6 +3,7 @@ let
     ./programs
     ./services
     ./core
+    ./hardware
   ];
 
   laptop = desktop;
