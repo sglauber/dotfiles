@@ -1,15 +1,12 @@
 _: {
   imports = [./hardware-configuration.nix];
 
-  networking = {
-    networkmanager.enable = true;
-    enableIPv6 = false;
-    dhcpcd.wait = "background";
-    dhcpcd.extraConfig = "noarp";
-    hostName = "anchor";
+  boot = {
+    # load modules on boot 
+    kernelModules = ["v4l2loopback"];
+    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
   };
-
-  services = {
-    fstrim.enable = true;
-  };
+ 
+  networking.hostName = "anchor";
+  services.fstrim.enable = true;
 }
