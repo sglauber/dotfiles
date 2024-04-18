@@ -5,6 +5,9 @@
   lib,
   ...
 }: {
+  imports = [
+  	./nixpkgs.nix
+  ];
   # we need git for flakes
   environment.systemPackages = [pkgs.git];
 
