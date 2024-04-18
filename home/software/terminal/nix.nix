@@ -6,10 +6,10 @@
 # nix tooling
 {
   home.packages = with pkgs; [
-  	alejandra
-	deadnix
-	statix 
-  	#self.packages.${pkgs.system}.repl
+    alejandra
+    deadnix
+    statix
+    #self.packages.${pkgs.system}.repl
   ];
 
   programs.direnv = {

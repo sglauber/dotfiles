@@ -6,7 +6,7 @@
   # get these into the module system
   extraSpecialArgs = {inherit inputs self;};
 
-  homeImports = { "lonen@anchor" = [./home.nix]; };
+  homeImports = {"lonen@anchor" = [./home.nix];};
   inherit (inputs.hm.lib) homeManagerConfiguration;
   pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 in {

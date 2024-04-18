@@ -842,6 +842,26 @@
         "type": "github"
       }
     },
+    "nix-index-db": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713067146,
+        "narHash": "sha256-9D20xjblGKEVRVCnM3qWhiizEa9i6OpK6xQJajwcwOQ=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "93aed67288be60c9ef6133ba2f8de128f4ef265c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nix-vscode-extensions": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -1074,6 +1094,7 @@
         "hyprpaper": "hyprpaper",
         "matugen": "matugen",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
+        "nix-index-db": "nix-index-db",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_8",
         "sf-mono-liga-src": "sf-mono-liga-src",

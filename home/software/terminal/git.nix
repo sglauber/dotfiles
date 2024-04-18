@@ -12,12 +12,12 @@
     enable = true;
     # enable git-lfs
     lfs.enable = true;
-    
+
     userName = "Glauber Santana";
     userEmail = "glauber.silva14@gmail.com";
     # signing = {
-      # key = "";
-      # signByDefault = true;
+    # key = "";
+    # signByDefault = true;
     # };
 
     delta = {
@@ -37,8 +37,8 @@
       repack.usedeltabaseoffset = "true";
       pull.ff = "only";
       # rebase = {
-        # autoSquash = true;
-        # autoStash = true;
+      # autoSquash = true;
+      # autoStash = true;
       # };
 
       # https://git-scm.com/book/en/v2/Git-Tools-Rerere

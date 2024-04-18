@@ -5,9 +5,9 @@
   ...
 }: {
   imports = [
-      # ./specialisations.nix
-      ./software
-      inputs.nix-index-db.hmModules.nix-index
+    # ./specialisations.nix
+    ./software
+    inputs.nix-index-db.hmModules.nix-index
   ];
   home = {
     username = "lonen";

@@ -17,19 +17,19 @@
   in {
     anchor = nixosSystem {
       inherit specialArgs;
-      modules = 
-          desktop 
-	  ++ laptop 
-	  ++ [
-	      ./anchor
-	      {
-	          home-manager = {
-		      users.lonen.imports = homeImports."lonen@anchor";
-		      extraSpecialArgs = specialArgs;
-		  };
-	      }
-	      inputs.agenix.nixosModules.default
-	    ];
-        };
+      modules =
+        desktop
+        ++ laptop
+        ++ [
+          ./anchor
+          {
+            home-manager = {
+              users.lonen.imports = homeImports."lonen@anchor";
+              extraSpecialArgs = specialArgs;
+            };
+          }
+          inputs.agenix.nixosModules.default
+        ];
     };
+  };
 }

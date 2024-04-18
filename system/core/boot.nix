@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   boot = {
     bootspec.enable = true;
     initrd = {
