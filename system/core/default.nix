@@ -2,9 +2,9 @@
 # default configuration shared by all hosts
 {
   imports = [
-    ./users.nix
     ./boot.nix
-    ./bluetooth.nix
+    ./security.nix
+    ./users.nix
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";

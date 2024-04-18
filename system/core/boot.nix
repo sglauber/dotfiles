@@ -3,34 +3,20 @@
   config,
   ...
 }: {
-  boot = {
-    # plymouth.enable = true;
-    # tmp.cleanOnBoot = true;
+    boot = {
+        initrd = {
+            systemd.enable = true;
+            supportedFilesystems = ["ntfs"];
+        };
 
-    kernelModules = ["v4l2loopback"];
-    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
-    loader = {
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot";
-      systemd-boot.enable = true;
-      timeout = 10;
-    };
-    supportedFilesystems = ["ntfs"];
-  };
+        kernelParams = ["quiet" "systemd.show_status=auto" "rd.udev.log_level=3"];
+        loader = {
+            systemd-boot.enable = true;
+            efi.canTouchEfiVariables = true;
+            efi.efiSysMountPoint = "/boot";
+            timeout = 3;
+        };
 
-  hardware = {
-    nvidia = {
-      open = false;
-      nvidiaSettings = true;
-      powerManagement.enable = true;
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+        tmp.cleanOnBoot = true;
     };
-
-    opengl = {
-      enable = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [nvidia-vaapi-driver];
-    };
-  };
 }
