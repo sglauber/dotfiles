@@ -10,12 +10,12 @@
     autocd = true;
 
     dirHashes = {
-        dl = "$HOME/Downloads";
-	dev = "$HOME/workspace";
-	docs = "$HOME/Documents";
-	dots = "$HOME/workspace/nixland";
-	pics = "$HOME/Pictures";
-	vids = "$HOME/Videos";
+      dl = "$HOME/Downloads";
+      dev = "$HOME/workspace";
+      docs = "$HOME/Documents";
+      dots = "$HOME/workspace/nixland";
+      pics = "$HOME/Pictures";
+      vids = "$HOME/Videos";
     };
 
     dotDir = ".config/zsh";
@@ -100,18 +100,18 @@
         trimall = "sudo fstrim -va";
         temp = "cd /tmp/";
 
-	# nix build
+        # nix build
         bloat = "nix path-info -Sh /run/current-system";
         switch = "sudo nixos-rebuild switch --flake .#anchor";
-	rebuild = "sudo nixos-rebuild test --flake .#anchor";
-        
-	# nix gc
-	cleanup = "sudo nix-collect-garbage --delete-older-than 1d";
+        rebuild = "sudo nixos-rebuild test --flake .#anchor";
+
+        # nix gc
+        cleanup = "sudo nix-collect-garbage --delete-older-than 1d";
         listgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
         nixremove = "nix-store --gc";
-	
-	# nix packages
-	installed = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq | sk";
+
+        # nix packages
+        installed = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq | sk";
         installedall = "nix-store --query --requisites /run/current-system | sk";
 
         # git
@@ -124,28 +124,28 @@
         gitgrep = "git ls-files | rg";
         gitrm = "git ls-files --deleted -z | xargs -0 git rm";
 
-	# ls
+        # ls
         l = "eza -lF --time-style=long-iso --icons";
         la = "eza -lah --tree";
         ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
         tree = "eza --tree --icons --tree";
 
-	# cp mv rm mkdir
+        # cp mv rm mkdir
         m = "mkdir -p";
         cp = "cp -vr";
         md = "inlyne";
         mv = "mv -v";
         rm = "rm -rv";
 
-	# cat grep
+        # cat grep
         cat = "bat --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
         grep = "rg";
 
-	# misc
-	df = "df -h";
+        # misc
+        df = "df -h";
         du = "du-dust";
         fm = "yazi";
-	jctl="journalctl -p 3 -xb";
+        jctl = "journalctl -p 3 -xb";
 
         # youtube-dl
         ytmp3 = "yt-dlp --ignore-errors -x --audio-format mp3 -f bestaudio --audio-quality 0 --embed-metadata --embed-thumbnail --output '%(title)s.%(ext)s'";
@@ -154,7 +154,7 @@
         us = "systemctl --user";
         rs = "sudo systemctl";
       }
-      // lib.optionalAttrs (config.programs.bat.enable == true) {cat = "bat";};
+      // lib.optionalAttrs config.programs.bat.enable {cat = "bat";};
     shellGlobalAliases = {eza = "eza --icons --git";};
   };
 }
