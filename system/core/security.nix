@@ -53,8 +53,14 @@ _: {
     # don't ask for password for wheel group
     sudo.enable = false;
     doas = {
-        enable = true;
-        extraRules = [{ users = ["lonen"]; keepEnv = true; persist = true; }];
+      enable = true;
+      extraRules = [
+        {
+          users = ["lonen"];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
     };
   };
 }

@@ -1,25 +1,25 @@
 {lib, ...}: {
-    networking = {
-        networkmanager = {
-            enable = true;
-            wifi.powersave = true;
-        };
-        
-        enableIPv6 = false;
-        dhcpcd.wait = "background";
-        dhcpcd.extraConfig = "noarp";
+  networking = {
+    networkmanager = {
+      enable = true;
+      wifi.powersave = true;
     };
 
-    services = {
-        openssh = {
-            enable = true;
-            settings.UseDns = true;
-        };
+    enableIPv6 = false;
+    dhcpcd.wait = "background";
+    dhcpcd.extraConfig = "noarp";
+  };
 
-        # DNS resolver
-        resolved.enable = true;
+  services = {
+    openssh = {
+      enable = true;
+      settings.UseDns = true;
     };
 
-    # Don't wait for network startup
-    systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+    # DNS resolver
+    resolved.enable = true;
+  };
+
+  # Don't wait for network startup
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 }
