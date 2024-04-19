@@ -5,7 +5,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      imports = [./hosts ./home ./lib ./modules ./pkgs];
+      imports = [./home ./hosts ./lib ./modules ./pkgs];
 
       perSystem = {
         config,
@@ -38,6 +38,17 @@
 
     aesthetic-iosevka.url = "github:alphatechnolog/aesthetic-iosevka";
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "hm";
+    };
+
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     anyrun = {
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +60,12 @@
     };
 
     fu.url = "github:numtide/flake-utils";
+
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.flake-utils.follows = "fu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hm = {
       url = "github:nix-community/home-manager";
@@ -78,16 +95,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "fu";
-    };
-
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "hm";
     };
 
     spicetify-nix = {
@@ -101,19 +122,5 @@
     };
 
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-
-    nix-index-db = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
   };
 }
