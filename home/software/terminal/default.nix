@@ -1,23 +1,19 @@
 {
   imports = [
-    #./bat.nix
-    #./bottom.nix
-    #./cava.nix
+    ./bat.nix
+    ./bottom.nix
     ./cli.nix
     #./gpg.nix
     ./git.nix
-    #./gitui.nix
-    #./inlyne.nix
-    #./neofetch.nix
+    ./inlyne.nix
+    ./neofetch.nix
     ./nix.nix
-    #./screenshot-area.nix
-    #./screenshot-full.nix
-    #./skim.nix
-    #./transient-services.nix
-    #./twitch-hls-client.nix
-    #./yazi
+    ./screenshot-area.nix
+    ./screenshot-full.nix
+    ./skim.nix
+    ./yazi
     ./xdg.nix
-    #./zoxide.nix
+    ./zoxide.nix
     ./zsh.nix
   ];
 }
