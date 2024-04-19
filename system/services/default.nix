@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./pipewire.nix
+    ./greetd.nix
   ];
 
   services = {
