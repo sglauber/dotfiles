@@ -6,7 +6,7 @@
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Ice";
-    size = 32;
+    size = 28;
     gtk.enable = true;
     x11.enable = true;
   };
@@ -16,7 +16,7 @@
     font = {
       name = "Inter";
       package = pkgs.google-fonts.override {fonts = ["Inter"];};
-      size = 16;
+      size = 12;
     };
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";

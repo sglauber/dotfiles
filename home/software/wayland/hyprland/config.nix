@@ -13,6 +13,7 @@
 in {
   wayland.windowManager.hyprland = {
     plugins = [hyprfocus];
+
     settings = {
       "$MOD" = "SUPER";
 
@@ -39,7 +40,7 @@ in {
         kb_options = "";
         kb_rules = "";
 
-        follow_mouse = true;
+        follow_mouse = false;
         repeat_delay = 140;
         repeat_rate = 30;
 
@@ -62,14 +63,14 @@ in {
         vfr = true;
 
         disable_splash_rendering = true;
-        disable_hyprland_logo = false;
+        disable_hyprland_logo = true;
         force_default_wallpaper = false;
       };
 
       general = {
-        monitor = ["HDMI-A-1, 2560x1440@60, 0x0, 1.25" "eDP-1, 1920x1080@60, -2048x0, 1"];
-        gaps_in = 2;
-        gaps_out = 4;
+        # monitor = ["HDMI-A-1, 2560x1440@60, 0x0, 1" "eDP-1, 1920x1080@60, -2560x0, 1"];
+        gaps_in = 4;
+        gaps_out = 8;
         border_size = 1;
         layout = "dwindle";
         no_cursor_warps = true;
@@ -81,13 +82,13 @@ in {
 
       decoration = {
         rounding = 1;
+
         blur = {
           enabled = true;
-          size = 6; # 8
-          passes = 3; # 1
+          size = 8; # 8
+          passes = 1; # 1
           new_optimizations = true;
           ignore_opacity = true;
-
           noise = "0.0117"; # 0.1
           contrast = "1.5"; # 1.1
           brightness = "1"; # 1
@@ -321,8 +322,10 @@ in {
 
       plugin.hyprfocus = {
         enabled = true;
+
         animate_floating = true;
         focus_animation = "flash";
+
         bezier = [
           "bezIn, 0.05,0.9,0.1,1.05"
           "bezOut, 0.05,0.9,0.1,1.05"
@@ -331,12 +334,14 @@ in {
           "smoothIn, 0.25, 1, 0.5, 1"
           "realsmooth, 0.28,0.9,0.1,1.05"
         ];
+
         flash = {
           flash_opacity = 0.9;
           in_bezier = "realsmooth";
-          in_speed = 2.5;
+          in_speed = 0.5;
+
           out_bezier = "realsmooth";
-          out_speed = 2.5;
+          out_speed = 3;
         };
       };
     };
