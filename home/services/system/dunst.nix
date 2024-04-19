@@ -9,7 +9,7 @@
     variant = config.theme.name;
     c = xcolors.colors.${variant};
   in {
-    enable = false;
+    enable = true;
     inherit (config.gtk) iconTheme;
     settings = {
       global = {
