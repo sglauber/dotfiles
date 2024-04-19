@@ -10,6 +10,6 @@
       "video"
       "wheel"
     ];
-    packages = with pkgs; [firefox git neovim kitty ripgrep wl-clipboard];
+    packages = with pkgs; [firefox neovim kitty];
   };
 }
