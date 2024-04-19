@@ -5,7 +5,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      imports = [./hosts ./home];
+      imports = [./hosts ./home ./lib ./modules];
 
       perSystem = {
         config,
