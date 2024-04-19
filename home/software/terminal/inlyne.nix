@@ -10,7 +10,7 @@
       touch "$1"
     fi
 
-    hx "$1" & 
+    hx "$1" &
     inlyne "$1" &
 
     wait
