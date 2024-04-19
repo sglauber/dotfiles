@@ -3,6 +3,7 @@
     ./bat.nix
     ./bottom.nix
     ./cli.nix
+    ./foot.nix
     #./gpg.nix
     ./git.nix
     ./inlyne.nix
@@ -11,6 +12,7 @@
     ./screenshot-area.nix
     ./screenshot-full.nix
     ./skim.nix
+    ./transient-services.nix
     ./yazi
     ./xdg.nix
     ./zoxide.nix
