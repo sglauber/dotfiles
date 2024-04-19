@@ -8,11 +8,12 @@
   imports = [
     ./nixpkgs.nix
   ];
+
   # we need git for flakes
   environment.systemPackages = [pkgs.git];
 
   nix = {
-    # pin the registry to avoid downloading and evaling a new nixpkgs version every time
+    # pin the registry to avoid downloading and evaling a nixpkgs version
     registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
 
     # set the path for channels compat
@@ -21,7 +22,7 @@
     settings = {
       warn-dirty = true;
       auto-optimise-store = true;
-      # builders-use-substitutes = true;
+      builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
       flake-registry = "/etc/nix/registry.json";
 
