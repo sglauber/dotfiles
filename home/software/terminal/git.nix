@@ -30,7 +30,7 @@
       diff.colorMoved = "default";
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
-      core.editor = "hx";
+      core.editor = "nvim";
       push.default = "current";
       merge.stat = "true";
       core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
