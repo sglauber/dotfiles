@@ -2,7 +2,7 @@
   networking = {
     networkmanager = {
       enable = true;
-      wifi.powersave = true;
+      wifi.powersave = false;
     };
 
     enableIPv6 = false;
@@ -15,11 +15,5 @@
       enable = true;
       settings.UseDns = true;
     };
-
-    # DNS resolver
-    resolved.enable = true;
   };
-
-  # Don't wait for network startup
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 }
