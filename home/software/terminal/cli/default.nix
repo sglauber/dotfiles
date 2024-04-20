@@ -1,4 +1,20 @@
 {pkgs, ...}: {
+  imports = [
+    # import folders first
+    ./yazi
+
+    ./bat.nix
+    ./bottom.nix
+    ./git.nix
+    ./inlyne.nix
+    ./nix.nix
+    ./skim.nix
+    ./screenshot-area.nix
+    ./screenshot-full.nix
+    ./transient-services.nix
+    ./xdg.nix
+  ];
+
   home.packages = with pkgs; [
     # archives
     zip
@@ -11,7 +27,6 @@
 
     # utils
     bottom
-    dijo
     du-dust
     duf
     fd
@@ -21,16 +36,11 @@
     killall
 
     yt-dlp
-    cfspeedtest
     onefetch
   ];
 
   programs = {
     eza.enable = true;
     ssh.enable = true;
-    dircolors = {
-      enable = true;
-      enableZshIntegration = true;
-    };
   };
 }

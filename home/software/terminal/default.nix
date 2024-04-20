@@ -4,20 +4,11 @@
   cache = config.xdg.cacheHome;
 in {
   imports = [
-    ./bat.nix
-    ./bottom.nix
-    ./cli.nix
-    ./foot.nix
-    ./git.nix
-    ./inlyne.nix
-    ./neofetch.nix
-    ./nix.nix
-    ./screenshot-area.nix
-    ./screenshot-full.nix
-    ./skim.nix
-    ./transient-services.nix
-    ./yazi
-    ./xdg.nix
+    # import folders first
+    ./emulators
+    ./cli
+
+    ./starship.nix
     ./zoxide.nix
     ./zsh.nix
   ];
