@@ -3,10 +3,11 @@
 
   perSystem = {pkgs, ...}: {
     packages = {
-      # biome = pkgs.callPackage ./biome {};
-      # discordo = pkgs.callPackage ./discordo {};
       # instant repl with automatic flake loading
       repl = pkgs.callPackage ./repl {};
+      wl-orc = pkgs.callPackage ./wl-ocr {};
+
+      # SanFrancisco fonts
       SF-Mono = pkgs.callPackage ./SF-Mono {inherit (pkgs) stdenv;};
       SF-Pro = pkgs.callPackage ./SF-Pro {inherit (pkgs) stdenv;};
     };
