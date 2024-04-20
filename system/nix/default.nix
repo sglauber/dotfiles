@@ -35,6 +35,20 @@
       trusted-users = ["root" "@wheel"];
     };
 
+    # TODO: run build from Pi to laptop
+
+    # buildMachines = lib.filter (x: x.hostName != config.networking.hostName) [
+    #  {
+    #    system = "aarch64-linux";
+    #    sshUser = "";
+    #    sshKey = "";
+    #    maxJobs = 4;
+    #    hostName = "";
+    #    protocol = "";
+    #    supportedFeatures = ["nixos-test" "benchmark" "kvm" "big-parallel"];
+    #  }
+    #];
+
     distributedBuilds = true;
   };
 }
