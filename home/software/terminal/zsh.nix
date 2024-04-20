@@ -126,9 +126,11 @@
         gitgrep = "git ls-files | rg";
         gitrm = "git ls-files --deleted -z | xargs -0 git rm";
 
+        ip = "ip --color";
+
         # ls
-        l = "eza -lF --time-style=long-iso --icons";
-        la = "eza -lah --tree";
+        l = "eza -lh";
+        la = "eza -lah";
         ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
         tree = "eza --tree --icons --tree";
 
@@ -140,7 +142,7 @@
         rm = "rm -rv";
 
         # cat grep
-        cat = "bat --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
+        # cat = "bat --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
         grep = "rg";
 
         # misc
