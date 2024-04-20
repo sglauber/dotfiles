@@ -1,8 +1,11 @@
 _: {
   imports = [
-    ./pipewire.nix
-    ./greetd.nix
     ./avahi.nix
+    ./backlight.nix
+    ./gnome-services.nix
+    ./greetd.nix
+    ./pipewire.nix
+    ./power.nix
   ];
 
   services = {

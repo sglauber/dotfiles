@@ -7,20 +7,22 @@
 }: {
   imports = [
     ./nixpkgs.nix
+    ./nh.nix
+    ./substituters.nix
   ];
 
-  # we need git for flakes
+  # install git system wide
   environment.systemPackages = [pkgs.git];
 
   nix = {
-    # pin the registry to avoid downloading and evaling a nixpkgs version
+    # pin the registry to avoid re-downloading a nixpkgs version
     registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
 
     # set the path for channels compat
     nixPath = lib.mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
 
     settings = {
-      warn-dirty = true;
+      warn-dirty = false;
       auto-optimise-store = true;
       builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
