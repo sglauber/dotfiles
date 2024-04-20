@@ -48,16 +48,18 @@ in {
 
     settings = {
       main = {
-        font = "JetBrains Mono:size=10";
+        font = "LigaSFMono Nerd Font:size=16:fontfeatures=calt:fontfeatures=dlig:fontfeatures=liga";
         box-drawings-uses-font-glyphs = "yes";
-        pad = "0x0 center";
+        dpi-aware = "yes";
+        pad = "5x5center";
         notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
         selection-target = "clipboard";
       };
 
       scrollback = {
         lines = 10000;
-        multiplier = 3;
+        multiplier = 5;
+        indicator-position = "none";
       };
 
       url = {

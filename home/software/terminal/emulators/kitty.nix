@@ -2,13 +2,15 @@
   programs.kitty = {
     enable = true;
     font = {
-      size = 10;
-      name = "JetBrains Mono";
+      size = 16;
+      name = "LigaSFMono Nerd Font";
     };
 
     settings = {
       scrollback_lines = 10000;
       placement_strategy = "center";
+
+      window_padding_width = 5;
 
       allow_remote_control = "yes";
       enable_audio_bell = "no";
@@ -23,6 +25,6 @@
       background_opacity = "0.9";
     };
 
-    theme = "Rose-Pine";
+    theme = "Rosé Pine";
   };
 }
