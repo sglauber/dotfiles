@@ -68,7 +68,10 @@ in {
       };
 
       general = {
-        # monitor = ["HDMI-A-1, 2560x1440@60, 0x0, 1" "eDP-1, 1920x1080@60, -2560x0, 1"];
+        monitor = [
+          "HDMI-A-1, 2560x1440@60, 1920x0, 1"
+          "eDP-1, 1920x1080@60, 0x0, 1"
+        ];
         gaps_in = 4;
         gaps_out = 8;
         border_size = 1;
