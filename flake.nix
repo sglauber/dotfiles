@@ -5,12 +5,11 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      imports = [./home ./hosts ./lib ./modules ./pkgs];
+      imports = [./home ./hosts ./lib ./modules ./pkgs ./pre-commit-hooks.nix];
 
       perSystem = {
         config,
         pkgs,
-        system,
         ...
       }: {
         devShells = {
@@ -22,6 +21,9 @@
             ];
             name = "nixland";
             DIRENV_LOG_FORMAT = "";
+            shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
           };
         };
         formatter = pkgs.alejandra;
@@ -102,6 +104,12 @@
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "fu";
+    };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "fu";
     };
