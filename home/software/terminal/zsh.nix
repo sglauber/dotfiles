@@ -99,6 +99,8 @@
         q = "exit";
         trimall = "sudo fstrim -va";
         temp = "cd /tmp/";
+        # how to also define aliases conditionally?
+        sudo = "doas";
 
         # nix build
         bloat = "nix path-info -Sh /run/current-system";
