@@ -22,7 +22,7 @@ in {
 
     input-fields = [
       {
-        monitor = "eDP-1";
+        monitor = "HDMI-A-1";
 
         size = {
           width = 300;
