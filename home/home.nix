@@ -14,6 +14,7 @@
     inputs.hypridle.homeManagerModules.default
     self.nixosModules.theme
   ];
+
   home = {
     username = "lonen";
     homeDirectory = "/home/lonen";
