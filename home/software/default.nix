@@ -10,9 +10,22 @@
   ];
 
   home.packages = with pkgs; [
-    jq
-    cliphist
+    # social
     vesktop
+    tdesktop
+
+    # personalizations
+    nixos-icons
     inputs.matugen.packages.${pkgs.system}.default
+
+    # misc
+    catimg
+    cliphist
+    colord
+    ffmpegthumbnailer
+    imagemagick
+    jq
+    pciutils
+    xcolor
   ];
 }
