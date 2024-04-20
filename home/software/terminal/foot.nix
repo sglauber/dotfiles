@@ -4,31 +4,38 @@
     enable = true;
     settings = {
       main = {
-        font = "LigaSFMono Nerd Font:size=14:fontfeatures=calt:fontfeatures=dlig:fontfeatures=liga";
+        font = "LigaSFMono Nerd Font:size=16:fontfeatures=calt:fontfeatures=dlig:fontfeatures=liga";
         box-drawings-uses-font-glyphs = "yes";
         dpi-aware = "yes";
-        pad = "25x25center";
+        pad = "12x12center";
         notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
         selection-target = "clipboard";
       };
+
       scrollback = {
         lines = 10000;
-        multiplier = 3;
+        multiplier = 5;
+        indicator-position = "none";
       };
+
       url = {
         launch = "xdg-open \${url}";
         label-letters = "sadfjklewcmpgh";
         osc8-underline = "url-mode";
         protocols = "http, https, ftp, ftps, file";
         uri-characters = ''
-          abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+="'()[]'';
+          abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+="'()[]
+        '';
       };
+
       cursor = {
         style = "beam";
-        beam-thickness = "2";
+        beam-thickness = "1";
+        blink = "yes";
       };
+
       colors = {
-        alpha = 1.0;
+        alpha = 0.9;
         foreground = "ebdbb2";
         background = "131313";
         regular0 = "3C3836"; # black
@@ -48,6 +55,7 @@
         bright6 = "89B482"; # bright cyan
         bright7 = "D4BE98"; # bright white
       };
+
       tweak = {
         font-monospace-warn = "no";
         sixel = "yes";
