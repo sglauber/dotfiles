@@ -34,7 +34,7 @@
         blink = "yes";
       };
 
-      mouse.hide-when-typing= "yes";
+      mouse.hide-when-typing = "yes";
 
       colors = {
         alpha = 0.9;

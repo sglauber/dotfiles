@@ -749,26 +749,6 @@
         "type": "github"
       }
     },
-    "nh": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1713512227,
-        "narHash": "sha256-mEA/kGnd/vxvqm80f2eOO35cKOPP1gDnOc7AFVPg9wU=",
-        "owner": "viperML",
-        "repo": "nh",
-        "rev": "131a40278054d597fea8825d6555b959006c4033",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "nh",
-        "type": "github"
-      }
-    },
     "nix-filter": {
       "locked": {
         "lastModified": 1694857738,
@@ -1021,7 +1001,6 @@
         "hyprlock": "hyprlock",
         "hyprpaper": "hyprpaper",
         "matugen": "matugen",
-        "nh": "nh",
         "nix-index-db": "nix-index-db",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_7",
