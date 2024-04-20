@@ -5,9 +5,12 @@
   ...
 }: {
   imports = [
-    ./specialisations.nix
+    # import folders first
+    ./editors
     ./software
     ./services
+
+    ./specialisations.nix
     inputs.matugen.nixosModules.default
     inputs.nix-index-db.hmModules.nix-index
     inputs.hyprlock.homeManagerModules.default
