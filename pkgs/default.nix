@@ -5,7 +5,7 @@
     packages = {
       # instant repl with automatic flake loading
       repl = pkgs.callPackage ./repl {};
-      wl-orc = pkgs.callPackage ./wl-ocr {};
+      wl-ocr = pkgs.callPackage ./wl-ocr {};
 
       # SanFrancisco fonts
       SF-Mono = pkgs.callPackage ./SF-Mono {inherit (pkgs) stdenv;};

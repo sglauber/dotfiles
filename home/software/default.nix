@@ -4,9 +4,14 @@
   ...
 }: {
   imports = [
+    # import folders first
+    ./anyrun
+    ./media
     ./terminal
-    ./gtk.nix
+    ./utilities
     ./wayland
+
+    ./gtk.nix
   ];
 
   home.packages = with pkgs; [
@@ -19,6 +24,7 @@
     inputs.matugen.packages.${pkgs.system}.default
 
     # misc
+    overskride
     catimg
     cliphist
     colord

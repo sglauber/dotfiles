@@ -63,12 +63,6 @@
 
     fu.url = "github:numtide/flake-utils";
 
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.flake-utils.follows = "fu";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

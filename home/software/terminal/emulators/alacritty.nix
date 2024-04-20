@@ -15,13 +15,13 @@
       scrolling.history = 10000;
 
       font = {
-        normal.family = "JetBrains Mono";
-        bold.family = "JetBrains Mono";
-        italic.family = "JetBrains Mono";
-        size = 10;
+        normal.family = "LigaSFMono Nerd Font";
+        bold.family = "LigaSFMono Nerd Font Bold";
+        italic.family = "LigaSFMono Nerd Font Italic";
+        size = 16;
       };
 
-      draw_bold_text_with_bright_colors = true;
+      colors.draw_bold_text_with_bright_colors = true;
       window.opacity = 0.9;
 
       imports = [

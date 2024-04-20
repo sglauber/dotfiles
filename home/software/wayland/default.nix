@@ -1,8 +1,12 @@
-{pkgs, ...}:
-# Wayland config
 {
+  pkgs,
+  self,
+  ...
+}: {
   imports = [
+    # import folders first
     ./hyprland
+
     ./hyprlock.nix
     ./wlogout.nix
   ];
@@ -13,8 +17,10 @@
     slurp
 
     # utils
+    self.packages.${pkgs.system}.wl-ocr
     wl-clipboard
     wl-screenrec
+    wlr-randr
     hyprpicker
   ];
 

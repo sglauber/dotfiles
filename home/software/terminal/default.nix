@@ -6,7 +6,7 @@ in {
   imports = [
     # import folders first
     ./emulators
-    ./cli
+    ./tools
 
     ./starship.nix
     ./zoxide.nix
