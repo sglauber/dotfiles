@@ -22,8 +22,8 @@
             name = "nixland";
             DIRENV_LOG_FORMAT = "";
             shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
+              ${config.pre-commit.installationScript}
+            '';
           };
         };
         formatter = pkgs.alejandra;
