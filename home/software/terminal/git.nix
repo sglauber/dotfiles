@@ -2,7 +2,10 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  cfg = config.programs.git;
+  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIo9GDELaZbOouKRTTRYurcL9XF3JflFI/+h3FBKgASL glauber.silva14@gmail.com";
+in {
   home.packages = [pkgs.gh];
 
   # enable scrolling in git diff
@@ -10,58 +13,67 @@
 
   programs.git = {
     enable = true;
-    # enable git-lfs
     lfs.enable = true;
 
     userName = "Glauber Santana";
     userEmail = "glauber.silva14@gmail.com";
-    # signing = {
-    # key = "";
-    # signByDefault = true;
-    # };
+
+    signing = {
+      key = "${config.home.homeDirectory}/.ssh/id_ed25519";
+      signByDefault = false;
+    };
 
     delta = {
       enable = true;
-      # options.${config.theme.name} = true;
+      options.${config.theme.name} = true;
     };
 
     extraConfig = {
       init.defaultBranch = "main";
       diff.colorMoved = "default";
       merge.conflictstyle = "diff3";
-      push.autoSetupRemote = true;
       core.editor = "nvim";
       push.default = "current";
-      merge.stat = "true";
-      core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
       repack.usedeltabaseoffset = "true";
       pull.ff = "only";
-      # rebase = {
-      # autoSquash = true;
-      # autoStash = true;
-      # };
+      pull.rebase = true;
 
       # https://git-scm.com/book/en/v2/Git-Tools-Rerere
       rerere = {
         enabled = true;
         autoupdate = true;
       };
+
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+      };
     };
 
     aliases = {
+      a = "add";
+      b = "branch";
+      c = "commit";
+      ca = "commit --amend";
+      cm = "commit -m";
       co = "checkout";
-      ca = "commit -am";
       d = "diff";
-      st = "status";
-      br = "branch";
-      df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}";
-      hist = ''
-        log --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)" --graph --date=relative --decorate --all'';
-      llog = ''
-        log --graph --name-status --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset" --date=relative'';
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; hx `f`";
+      ds = "diff --staged";
+      p = "push";
+      pf = "push --force-with-lease";
+      pl = "pull";
+      l = "log";
+      r = "rebase";
+      s = "status";
+      forgor = "commit --amend --no-edit";
+      graph = "log --all --decorate --graph --oneline";
+      oops = "checkout --";
     };
 
-    ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
+    ignores = ["*~" "*result*" ".direnv" "node_modules"];
   };
+
+  xdg.configFile."git/allowed_signers".text = ''
+    ${cfg.userEmail} namespaces="git" ${key}
+  '';
 }

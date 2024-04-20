@@ -6,14 +6,14 @@
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
-
     autocd = true;
 
     dirHashes = {
       dl = "$HOME/Downloads";
       dev = "$HOME/workspace";
       docs = "$HOME/Documents";
-      dots = "$HOME/workspace/nixland";
+      code = "$HOME/workspace/";
+      dots = "$HOME/workspace/dotfiles";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
     };
@@ -133,9 +133,9 @@
         tree = "eza --tree --icons --tree";
 
         # cp mv rm mkdir
-        m = "mkdir -p";
         cp = "cp -vr";
-        md = "inlyne";
+        mo = "inlyne";
+        md = "mkdir -p";
         mv = "mv -v";
         rm = "rm -rv";
 
