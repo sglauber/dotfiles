@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./chromium
-    ./firefox
+    ./chromium.nix
+    ./firefox.nix
   ];
 }

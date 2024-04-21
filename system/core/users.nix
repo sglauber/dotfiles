@@ -10,6 +10,6 @@
       "video"
       "wheel"
     ];
-    packages = with pkgs; [firefox neovim kitty];
+    packages = with pkgs; [neovim];
   };
 }

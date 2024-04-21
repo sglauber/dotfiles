@@ -6,6 +6,7 @@
   imports = [
     # import folders first
     ./anyrun
+    ./browsers
     ./media
     ./terminal
     ./utilities
@@ -24,7 +25,6 @@
     inputs.matugen.packages.${pkgs.system}.default
 
     # misc
-    overskride
     catimg
     cliphist
     colord
