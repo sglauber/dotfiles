@@ -36,6 +36,9 @@
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
 
+      # float devtools by default
+      "float,title:^(DevTools)$"
+
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
@@ -56,6 +59,18 @@
       "rounding 0, xwayland:1"
       "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
       "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
+
+      "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+      "noanim,class:^(xwaylandvideobridge)$"
+      "nofocus,class:^(xwaylandvideobridge)$"
+      "noinitialfocus,class:^(xwaylandvideobridge)$"
+      "noblur,class:^(xwaylandvideobridge)$"
+      "noshadow,class:^(xwaylandvideobridge)$"
+    ];
+
+    workspace = [
+      "workspace = 1, monitor:HDMI-A-1, default:true"
+      "workspace = name:Hello, monitor:DP-1, default:true"
     ];
   };
 }

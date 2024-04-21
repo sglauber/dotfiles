@@ -39,8 +39,9 @@
   associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) ({
       "application/pdf" = ["org.pwmt.zathura-pdf-mupdf"];
       "text/html" = browser;
-      "text/plain" = ["Helix"];
+      "text/plain" = ["nvim"];
       "x-scheme-handler/chrome" = ["chromium-browser"];
+      "inode/directory" = ["yazi"];
     }
     // image
     // video
@@ -65,11 +66,10 @@ in {
     };
   };
 
-  # used by `gio open` and xdp-gtk
   home.packages = [
     # used by `gio open` and xdp-gtk
     (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
-      wezterm start "$@"
+      foot "$@"
     '')
     pkgs.xdg-utils
   ];

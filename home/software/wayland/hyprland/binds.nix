@@ -29,19 +29,22 @@ in {
     in
       [
         # compositor commands
-        "$mod SHIFT, E, exec, pkill Hyprland"
-        "$mod, Q, killactive,"
+        "$mod SHIFT, Q, exit,"
+        "$mod SHIFT, C, killactive,"
         "$mod, F, fullscreen,"
         "$mod, G, togglegroup,"
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
         "$mod, R, togglesplit,"
-        "$mod, T, togglefloating,"
+        "$mod, SPACE, togglefloating,"
         "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
 
         # toggle "monocle" (no_gaps_when_only)
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+
+        # apps
+        "$mod, B, exec, chromium-browser"
 
         # utility
         # terminal
@@ -49,7 +52,7 @@ in {
         # logout menu
         "$mod, Escape, exec, wlogout -p layer-shell"
         # lock screen
-        "$mod SHIFT, L, exec, loginctl lock-session"
+        "CTRL_ALT, L, exec, loginctl lock-session"
         # select area to perform OCR on
         "$mod, O, exec, run-as-service wl-ocr"
 
@@ -58,6 +61,12 @@ in {
         "$mod, J, movefocus, d"
         "$mod, L, movefocus, r"
         "$mod, H, movefocus, l"
+
+        # move windows
+        "$mod SHIFT, K, movewindow, u"
+        "$mod SHIFT, J, movewindow, d"
+        "$mod SHIFT, L, movewindow, r"
+        "$mod SHIFT, H, movewindow, l"
 
         # screenshot
         # stop animations while screenshotting; makes black border go away

@@ -33,5 +33,10 @@
     jq
     pciutils
     xcolor
+
+    # ags
+    mission-center
+    dart-sass
+    overskride
   ];
 }

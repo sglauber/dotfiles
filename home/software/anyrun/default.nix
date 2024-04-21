@@ -21,7 +21,7 @@
       ];
 
       width.fraction = 0.3;
-      y.absolute = 15;
+      y.absolute = 20;
       hidePluginInfo = true;
       closeOnClick = true;
     };

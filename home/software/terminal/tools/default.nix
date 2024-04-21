@@ -21,6 +21,11 @@
     unzip
     unrar
 
+    # media
+    amberol
+    viewnior
+    yt-dlp
+
     # misc
     libnotify
     fontconfig
@@ -32,10 +37,9 @@
     fd
     file
     jaq
-    ripgrep
     killall
+    ripgrep
 
-    yt-dlp
     onefetch
   ];
 
