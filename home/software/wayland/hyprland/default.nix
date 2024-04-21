@@ -3,7 +3,13 @@
   pkgs,
   ...
 }: {
-  imports = [./config.nix];
+  imports = [
+    inputs.hyprland.homeManagerModules.default
+    ./binds.nix
+    ./plugins.nix
+    ./rules.nix
+    ./settings.nix
+  ];
 
   home = {
     packages = with pkgs; [
