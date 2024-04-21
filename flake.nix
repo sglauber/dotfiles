@@ -5,7 +5,14 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      imports = [./home ./hosts ./lib ./modules ./pkgs ./pre-commit-hooks.nix];
+      imports = [
+        ./home
+        ./hosts
+        ./lib
+        ./modules
+        ./pkgs
+        ./pre-commit-hooks.nix
+      ];
 
       perSystem = {
         config,
@@ -19,13 +26,14 @@
               pkgs.git
               config.packages.repl
             ];
-            name = "nixland";
+            name = "dots";
             DIRENV_LOG_FORMAT = "";
             shellHook = ''
               ${config.pre-commit.installationScript}
             '';
           };
         };
+
         formatter = pkgs.alejandra;
       };
     };
@@ -119,5 +127,7 @@
     };
 
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+
+    yazi.url = "github:sxyazi/yazi";
   };
 }
