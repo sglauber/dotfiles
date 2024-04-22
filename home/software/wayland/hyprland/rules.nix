@@ -69,8 +69,16 @@
     ];
 
     workspace = [
-      "workspace = 1, monitor:HDMI-A-1, default:true"
-      "workspace = name:Hello, monitor:DP-1, default:true"
+      "1, monitor:HDMI-A-1, default:true"
+      "2, monitor:HDMI-A-1"
+      "3, monitor:HDMI-A-1"
+      "4, monitor:HDMI-A-1"
+      "5, monitor:HDMI-A-1"
+      # Bind workspaces 6-9 (group 2) to secondary monitor
+      "6, monitor:eDP-1, default:true"
+      "7, monitor:eDP-1"
+      "8, monitor:eDP-1"
+      "9, monitor:eDP-1"
     ];
   };
 }
