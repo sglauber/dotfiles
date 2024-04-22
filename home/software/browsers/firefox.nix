@@ -220,6 +220,7 @@
         "browser.display.focus_ring_style" = 0;
         "browser.display.focus_ring_width" = 0;
         "layout.css.prefers-color-scheme.content-override" = 2;
+        "layout.css.devPixelsPerPx" = 1.35;
         "browser.privateWindowSeparation.enabled" = false; # WINDOWS
         # COOKIE BANNER HANDLING
         "cookiebanners.service.mode" = 1;
