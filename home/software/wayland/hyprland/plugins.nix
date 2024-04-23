@@ -9,7 +9,7 @@ in {
     plugins = [hyprfocus];
     settings = {
       plugin.hyprfocus = {
-        enabled = true;
+        enabled = false;
 
         animate_floating = true;
         focus_animation = "flash";
