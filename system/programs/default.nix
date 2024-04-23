@@ -1,5 +1,6 @@
 {
   imports = [
+    ./docker.nix
     ./fonts.nix
     ./home-manager.nix
     ./hyprland.nix

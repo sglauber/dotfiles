@@ -6,6 +6,7 @@
     initialPassword = "notasecret";
     extraGroups = [
       "audio"
+      "docker"
       "networkmanager"
       "video"
       "wheel"
