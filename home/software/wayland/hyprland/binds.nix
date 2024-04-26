@@ -44,7 +44,7 @@ in {
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
         # apps
-        "$mod, B, exec, chromium-browser"
+        "$mod, B, exec, google-chrome-stable"
 
         # utility
         # terminal
