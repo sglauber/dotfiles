@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  users.users.lonen = {
+  users.users.glwbr = {
     isNormalUser = true;
     description = "Glauber Santana";
     shell = pkgs.zsh;

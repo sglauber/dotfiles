@@ -1,6 +1,6 @@
 {inputs, ...}: {
   # nh default flake
-  environment.variables.FLAKE = "/home/lonen/workspace/dotfiles";
+  environment.variables.FLAKE = "/home/glwbr/workspace/dotfiles";
 
   programs.nh = {
     enable = true;

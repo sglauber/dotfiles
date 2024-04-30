@@ -15,16 +15,16 @@
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    anchor = nixosSystem {
+    zion = nixosSystem {
       inherit specialArgs;
       modules =
         desktop
         ++ laptop
         ++ [
-          ./anchor
+          ./zion
           {
             home-manager = {
-              users.lonen.imports = homeImports."lonen@anchor";
+              users.glwbr.imports = homeImports."glwbr@zion";
               extraSpecialArgs = specialArgs;
             };
           }
