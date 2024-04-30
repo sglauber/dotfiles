@@ -99,13 +99,11 @@
         q = "exit";
         trimall = "sudo fstrim -va";
         temp = "cd /tmp/";
-        # how to also define aliases conditionally?
-        sudo = "doas";
 
         # nix build
         bloat = "nix path-info -Sh /run/current-system";
-        switch = "sudo nixos-rebuild switch --flake .#anchor";
-        rebuild = "sudo nixos-rebuild test --flake .#anchor";
+        switch = "sudo nixos-rebuild switch --flake .#zion";
+        rebuild = "sudo nixos-rebuild test --flake .#zion";
 
         # nix gc
         cleanup = "sudo nix-collect-garbage --delete-older-than 1d";
@@ -131,7 +129,7 @@
         # ls
         l = "eza -lh";
         la = "eza -lah";
-        ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
+        ls = "eza --icons --color=auto --group-directories-first -s extension";
         tree = "eza --tree --icons --tree";
 
         # cp mv rm mkdir
