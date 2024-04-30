@@ -25,10 +25,10 @@ in {
       "col.inactive_border" = "0xff908caa";
       "col.active_border" = "0xffebbcba 0xffeb6f92 0xffc4a7e7 45deg";
 
-      #monitor = [
-      #  "HDMI-A-1, 2560x1440@60, 0x0, 1"
-      #  "eDP-1, 1920x1080@60, -2560x0, 1.25"
-      #];
+      monitor = [
+        "HDMI-A-1, 2560x1440@60, 0x0, 1"
+        "eDP-1, 1920x1080@60, 0x1440, 1.25"
+      ];
 
       allow_tearing = true;
       resize_on_border = true;
