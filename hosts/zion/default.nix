@@ -7,6 +7,6 @@ _: {
     kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
   };
 
-  networking.hostName = "anchor";
+  networking.hostName = "zion";
   services.fstrim.enable = true;
 }
