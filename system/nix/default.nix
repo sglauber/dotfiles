@@ -12,7 +12,7 @@
   ];
 
   # install git system wide
-  environment.systemPackages = with pkgs; [git postman nodejs];
+  environment.systemPackages = with pkgs; [git postman nodejs qbittorrent];
 
   nix = {
     # pin the registry to avoid re-downloading a nixpkgs version
