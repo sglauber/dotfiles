@@ -13,7 +13,7 @@ alias cp="cp -vr"
 # df - disk usage
 alias df="df -h"     # human-readable sizes
 
-# free - memory usage 
+# free - memory usage
 alias free="free -m" # show sizes in MB
 
 # fonts
@@ -26,11 +26,11 @@ alias gitl="git log --oneline --graph"
 alias gita="git add"
 
 # ls
-alias ls="exa --icons --group-directories-first"
-alias la="exa --icons --all --group-directories-first"
-alias ll="exa --icons --long --header --group-directories-first"
-alias l.="exa -a | egrep "^\.""
-alias lla="exa --icons --long --header --all --group-directories-first"
+alias ls="eza --icons --group-directories-first"
+alias la="eza --icons --all --group-directories-first"
+alias ll="eza --icons --long --header --group-directories-first"
+alias l.="eza -a | egrep "^\.""
+alias lla="eza --icons --long --header --all --group-directories-first"
 
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -53,7 +53,7 @@ alias cleanup="sudo pacman -Rns $(pacman -Qtdq)"
 # rm
 alias rm="rm -rv"
 
-# system 
+# system
 alias shutdown="sudo shutdown now"
 alias restart="sudo reboot"
 alias suspend="sudo pm-suspend"
