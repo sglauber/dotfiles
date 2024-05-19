@@ -20,6 +20,7 @@ alias free="free -m" # show sizes in MB
 alias fonts="fc-cache -f -v"
 
 # git
+alias g="git"
 alias dot="git --git-dir=$DOTFILESDIR --work-tree=$HOME"
 alias gitc="git clone"
 alias gitl="git log --oneline --graph"
@@ -42,7 +43,7 @@ alias mv="mv -v"
 alias mkdir="mkdir -p"
 
 # neovim
-alias vim="nvim"
+alias v="nvim"
 alias svim="sudoedit"
 alias nvimrc="nvim ~/.config/nvim/"
 alias dvim="vim -u /usr/share/nvim/archlinux.vim"	 # Load nvim with default config
@@ -59,4 +60,4 @@ alias restart="sudo reboot"
 alias suspend="sudo pm-suspend"
 
 # tree
-alias tree="exa --tree --level=2"
+alias tree="eza --tree --level=2"
