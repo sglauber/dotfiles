@@ -6,6 +6,7 @@ _: {
     ./greetd.nix
     ./pipewire.nix
     ./power.nix
+    ./samba.nix
   ];
 
   services = {

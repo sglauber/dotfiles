@@ -6,6 +6,7 @@
     ./bat.nix
     ./bottom.nix
     ./git.nix
+    ./gpg.nix
     ./inlyne.nix
     ./nix.nix
     ./skim.nix
