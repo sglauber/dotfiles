@@ -31,7 +31,7 @@ in {
         # compositor commands
         "$mod SHIFT, Q, exit,"
         "$mod SHIFT, C, killactive,"
-        "$mod, F, fullscreen,"
+        "$mod, F, fullscreen, 1"
         "$mod, G, togglegroup,"
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
@@ -71,7 +71,7 @@ in {
         # screenshot
         # stop animations while screenshotting; makes black border go away
         ", Print, exec, ${screenshotarea}"
-        "$mod SHIFT, R, exec, ${screenshotarea}"
+        "$mod SHIFT, S, exec, ${screenshotarea}"
 
         "CTRL, Print, exec, grimblast --notify --cursor copysave output"
 
