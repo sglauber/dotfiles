@@ -1,133 +1,78 @@
 {
-  description = "Lonen's Floquinhos";
-
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-
-      imports = [
-        ./home
-        ./hosts
-        ./lib
-        ./modules
-        ./pkgs
-        ./pre-commit-hooks.nix
-      ];
-
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
-        devShells = {
-          default = pkgs.mkShell {
-            packages = [
-              pkgs.alejandra
-              pkgs.git
-              config.packages.repl
-            ];
-            name = "dots";
-            DIRENV_LOG_FORMAT = "";
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
-          };
-        };
-
-        formatter = pkgs.alejandra;
-      };
-    };
+  description = "glwbr's floquinhos";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    aesthetic-iosevka.url = "github:alphatechnolog/aesthetic-iosevka";
-
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "hm";
-    };
-
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    fu.url = "github:numtide/flake-utils";
-
-    hm = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprfocus = {
-      url = "github:pyt0xic/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hypridle.url = "github:hyprwm/hypridle";
-
-    hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprlock.url = "github:hyprwm/hyprlock";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
 
-    hyprpaper.url = "github:hyprwm/hyprpaper";
-
-    matugen = {
-      url = "github:InioX/matugen";
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-index-db = {
-      url = "github:Mic92/nix-index-database";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
 
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "fu";
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixvim,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    # Custom packages accessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    # Custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+    # Reusable nixos modules
+    nixosModules = import ./modules/nixos;
+    # Reusable home-manager
+    homeManagerModules = import ./modules/home;
+
+    # 'nixos-rebuild --flake .#hostname'
+    nixosConfigurations = {
+      zion = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/zion];
+      };
     };
 
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "fu";
+    # standalone 'home-manager --flake .#username@hostname'
+    homeConfigurations = {
+      "glwbr@zion" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home/zion/default.nix
+        ];
+      };
     };
-
-    spicetify-nix = {
-      url = "github:MichaelPachec0/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    sss = {
-      url = "github:SergioRibera/sss/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-
-    yazi.url = "github:sxyazi/yazi";
   };
 }
