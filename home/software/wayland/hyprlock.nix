@@ -36,9 +36,9 @@ in {
 
           outline_thickness = 2;
 
-           outer_color = "rgb(${c.primary})";
-           inner_color = "rgb(${c.on_primary_container})";
-           font_color = "rgb(${c.primary_container})";
+          outer_color = "rgb(${c.primary})";
+          inner_color = "rgb(${c.on_primary_container})";
+          font_color = "rgb(${c.primary_container})";
 
           fade_on_empty = false;
           placeholder_text = ''<span font_family="${font_family}" foreground="##${c.primary_container}">Password...</span>'';
