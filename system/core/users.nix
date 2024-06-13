@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   users.users.glwbr = {
     isNormalUser = true;
-    description = "Glauber Santana";
     shell = pkgs.zsh;
     initialPassword = "notasecret";
+    # !TODO: move this from here to home manager apply 'ifTheyExist' to group
     extraGroups = [
       "audio"
       "docker"
@@ -11,6 +11,5 @@
       "video"
       "wheel"
     ];
-    packages = with pkgs; [neovim];
   };
 }

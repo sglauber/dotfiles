@@ -22,7 +22,7 @@
       inputs.self.packages.${pkgs.system}.SF-Pro
 
       # nerdfonts
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono"];})
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono" "DejaVuSansMono"];})
     ];
 
     # causes more issues than it solves
