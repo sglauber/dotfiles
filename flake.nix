@@ -48,10 +48,9 @@
 
     aesthetic-iosevka.url = "github:alphatechnolog/aesthetic-iosevka";
 
-    agenix = {
-      url = "github:ryantm/agenix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "hm";
     };
 
     ags = {
@@ -61,6 +60,11 @@
 
     anyrun = {
       url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -83,7 +87,9 @@
 
     hypridle.url = "github:hyprwm/hypridle";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    };
 
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -96,6 +102,11 @@
 
     matugen = {
       url = "github:InioX/matugen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
