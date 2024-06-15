@@ -8,7 +8,6 @@
     };
 
     clipboard = {
-      # register = "";
       providers.wl-copy.enable = true;
     };
 
@@ -72,6 +71,7 @@
 
       # Status line
       laststatus = 3;
+      showmode = false;
 
       # Text width
       textwidth = 0;

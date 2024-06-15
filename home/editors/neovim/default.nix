@@ -2,7 +2,10 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins
+
+    ./autocmds.nix
     ./options.nix
+    ./remap.nix
   ];
   home.shellAliases.v = "nvim";
   programs.nixvim = {
