@@ -1,23 +1,48 @@
 {
-  self,
+  lib,
+  pkgs,
+  config,
   inputs,
+  hostname,
+  username,
+  stateVersion,
   ...
-}: let
-  # get these into the module system
-  extraSpecialArgs = {inherit inputs self;};
+}: {
+  imports =
+    [
+      inputs.sops-nix.homeManagerModules.sops
+      inputs.nix-index-db.hmModules.nix-index
 
-  homeImports = {"glwbr@zion" = [./home.nix];};
-  inherit (inputs.hm.lib) homeManagerConfiguration;
-  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-in {
-  _module.args = {inherit homeImports;};
+      ./shared/core
+      ./shared/optional/browsers/chrome
+      ./shared/optional/wm/wayland/sway
+      ./shared/optional/wm/wayland/hyprland
+      ./shared/optional/wm/gtk.nix
+      ./shared/optional/terminal/pfetch
+      ./shared/optional/transient-services
+      ./shared/optional/wm/wayland/services
 
-  flake = {
-    homeConfiguration = {
-      "glwbr_zion" = homeManagerConfiguration {
-        modules = homeImports."glwbr@zion";
-        inherit pkgs extraSpecialArgs;
-      };
+      ./shared/optional/obsidian
+      ./shared/optional/media/default.nix
+      ./shared/optional/media/mpv.nix
+      ./shared/optional/wm/wayland/hyprlock.nix
+    ]
+    ++ lib.optional (builtins.pathExists (./. + "/users/${username}")) ./users/${username}
+    ++ lib.optional (builtins.pathExists (./. + "/hosts/${hostname}")) ./hosts/${hostname};
+
+  home = {
+    inherit stateVersion;
+    inherit username;
+    homeDirectory = "/home/${username}";
+    sessionVariables = {
+      LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
+      LESSKEY = "${config.xdg.cacheHome}/less/lesskey";
+      DIRENV_LOG_FORMAT = "";
+      NIX_AUTO_RUN = "1";
     };
   };
+
+  programs.home-manager.enable = true;
+
+  systemd.user.startServices = "sd-switch";
 }

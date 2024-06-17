@@ -1,0 +1,12 @@
+keys:
+  - &users: 
+    - &glwbr age1cqrg22g9gzas55xna8wup9yaymd3vwsj07mdknhchmfezfsvqqeqx7qw7a
+    # - &glwbr F2958A358360AB1FD9ACAE112CEB532115AD1913
+  - &hosts:
+    - &zion age1vq7z3ahkgj4k26ttuanmtkhc6a5ugn8e6qc7epfhgky4hthx8v9squ3zlu
+creation_rules:
+  - path_regex: hosts/shared/secrets.(ya?ml|json)$
+    key_groups:
+    - age:
+      - *glwbr
+      - *zion
