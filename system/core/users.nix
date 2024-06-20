@@ -1,15 +1,40 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+in {
+  sops.secrets.glwbr-password = {
+    sopsFile = ../../hosts/shared/secrets.yaml;
+    neededForUsers = true;
+  };
+
+  users.mutableUsers = false;
   users.users.glwbr = {
+    description = "Glauber Santana";
     isNormalUser = true;
     shell = pkgs.zsh;
-    initialPassword = "notasecret";
-    # !TODO: move this from here to home manager apply 'ifTheyExist' to group
-    extraGroups = [
-      "audio"
-      "docker"
-      "networkmanager"
-      "video"
-      "wheel"
-    ];
+    extraGroups =
+      [
+        "wheel"
+        "video"
+        "audio"
+      ]
+      ++ ifTheyExist [
+        "adbusers"
+        "network"
+        "networkmanager"
+        "wireshark"
+        "docker"
+        "podman"
+        "git"
+        "libvirtd"
+      ];
+
+    hashedPasswordFile = config.sops.secrets.glwbr-password.path;
+    # openssh.authorizedKeys.keys = [];
+    packages = [pkgs.home-manager];
   };
 }
