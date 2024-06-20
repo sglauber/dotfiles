@@ -25,14 +25,11 @@ in {
         }
       ];
 
-      input-fields = [
+      input-field = [
         {
           monitor = "HDMI-A-1";
-
-          size = {
-            width = 300;
-            height = 50;
-          };
+          # width, height
+          size = "300, 50";
 
           outline_thickness = 2;
 
@@ -48,18 +45,15 @@ in {
         }
       ];
 
-      labels = [
+      label = [
         {
           monitor = "";
           text = "$TIME";
           inherit font_family;
           font_size = 50;
           color = "rgb(${c.primary})";
-
-          position = {
-            x = 0;
-            y = 80;
-          };
+          # x, y
+          position = "0, 80";
 
           valign = "center";
           halign = "center";
