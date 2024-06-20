@@ -21,7 +21,7 @@ in {
     general = {
       gaps_in = 4;
       gaps_out = 8;
-      border_size = 1;
+      border_size = 2;
       "col.inactive_border" = "0xff908caa";
       "col.active_border" = "0xffebbcba 0xffeb6f92 0xffc4a7e7 45deg";
 
@@ -96,8 +96,8 @@ in {
       kb_options = "caps:swapescape,grp:alt_space_toggle";
 
       # type really fast
-      #repeat_delay = 140;
-      #repeat_rate = 30;
+      repeat_delay = 150;
+      repeat_rate = 30;
 
       # focus change on cursor move
       follow_mouse = true;
@@ -115,7 +115,7 @@ in {
     };
 
     master = {
-      new_is_master = true;
+      new_status = "master";
     };
 
     misc = {

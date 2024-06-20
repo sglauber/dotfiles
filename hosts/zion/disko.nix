@@ -1,6 +1,4 @@
-{inputs, ...}: {
-  imports = [inputs.disko.nixosModules.disko];
-
+_: {
   disko.devices = {
     disk = {
       vda = {

@@ -1,5 +1,11 @@
-_: {
-  imports = [./hardware.nix ./disko.nix ./powersave.nix];
+{inputs, ...}: {
+  imports = [
+    ./hardware.nix
+    ./disko.nix
+    ./powersave.nix
+    ../shared/core/sops
+    inputs.disko.nixosModules.disko
+  ];
 
   boot = {
     # load modules on boot

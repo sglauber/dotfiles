@@ -47,7 +47,9 @@ _: {
     # allow wayland lockers to unlock the screen
     pam.services.hyprlock.text = "auth include login";
 
-    # pipewire
+    # !TODO: movve this to pipewiere namespace
     rtkit.enable = true;
+
+    sudo.wheelNeedsPassword = false;
   };
 }
