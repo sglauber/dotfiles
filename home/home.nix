@@ -19,7 +19,7 @@
   home = {
     username = "glwbr";
     homeDirectory = "/home/glwbr";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   # disable manuals as nmd fails to build often
