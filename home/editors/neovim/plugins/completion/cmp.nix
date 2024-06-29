@@ -1,26 +1,9 @@
 _: {
   programs.nixvim = {
-    opts.completeopt = ["menu" "menuone" "noselect"];
+    opts.completeopt = ["menu" "menuone" "noinsert"];
 
     plugins = {
       luasnip.enable = true;
-
-      lspkind = {
-        enable = true;
-
-        cmp = {
-          enable = true;
-          menu = {
-            nvim_lsp = "[LSP]";
-            nvim_lua = "[api]";
-            path = "[path]";
-            luasnip = "[snip]";
-            buffer = "[buffer]";
-            # neorg = "[neorg]";
-            # cmp_tabby = "[Tabby]";
-          };
-        };
-      };
 
       cmp = {
         enable = true;
@@ -39,16 +22,14 @@ _: {
           };
 
           sources = [
-            {name = "path";}
-            {name = "nvim_lsp";}
-            # {name = "cmp_tabby";}
             {name = "luasnip";}
+            {name = "nvim_lsp";}
+            {name = "path";}
             {
               name = "buffer";
               # Words from other open buffers can also be suggested.
               option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             }
-            # {name = "neorg";}
           ];
         };
       };
