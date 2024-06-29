@@ -11,7 +11,7 @@
 
       git_status = {
         deleted = "✗";
-        modified = "✶";
+        modified = "✶ ";
         staged = "✓";
         stashed = "≡";
       };
