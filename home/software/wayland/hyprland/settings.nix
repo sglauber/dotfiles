@@ -96,7 +96,7 @@ in {
       kb_options = "caps:swapescape,grp:alt_space_toggle";
 
       # type really fast
-      repeat_delay = 150;
+      repeat_delay = 170;
       repeat_rate = 30;
 
       # focus change on cursor move
