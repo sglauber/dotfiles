@@ -1,5 +1,7 @@
 _: {
-    imports = [
-        ./lsp.nix
-    ];
+  imports = [
+    ./conform.nix
+    ./fidget.nix
+    ./lsp.nix
+  ];
 }

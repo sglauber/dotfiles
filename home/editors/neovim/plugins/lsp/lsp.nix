@@ -6,25 +6,26 @@ _: {
 
         keymaps = {
           silent = true;
-          diagnostic = {
-            # Navigate in diagnostics
-            "<C-p>" = "goto_prev";
-            "<C-n>" = "goto_next";
-            "<C-y>" = "confirm";
-            "<C-space>" = "complete";
-          };
+          #diagnostic = {
+          #  # Navigate in diagnostics
+          #  "<C-p>" = "goto_prev";
+          #  "<C-n>" = "goto_next";
+          #  "<C-y>" = "confirm";
+          #  "<C-space>" = "complete";
+          #};
 
-          lspBuf = {
-            gd = "definition";
-            gD = "references";
-            gt = "type_definition";
-            gi = "implementation";
-            K = "hover";
-          };
+          #lspBuf = {
+          #  K = "hover";
+          #  gd = "definition";
+          #  gD = "references";
+          #  gi = "implementation";
+          #  gt = "type_definition";
+          #};
         };
 
         servers = {
           clangd.enable = true;
+          elixirls.enable = true;
           eslint.enable = true;
           lua-ls = {
             enable = true;
@@ -41,36 +42,7 @@ _: {
             };
           };
           nil-ls.enable = true;
-          tsserver = {
-            enable = false;
-            filetypes = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
-            extraOptions = {
-              settings = {
-                javascript = {
-                  inlayHints = {
-                    includeInlayEnumMemberValueHints = true;
-                    includeInlayFunctionLikeReturnTypeHints = true;
-                    includeInlayFunctionParameterTypeHints = true;
-                    includeInlayParameterNameHints = "all";
-                    includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                    includeInlayPropertyDeclarationTypeHints = true;
-                    includeInlayVariableTypeHints = true;
-                  };
-                };
-                typescript = {
-                  inlayHints = {
-                    includeInlayEnumMemberValueHints = true;
-                    includeInlayFunctionLikeReturnTypeHints = true;
-                    includeInlayFunctionParameterTypeHints = true;
-                    includeInlayParameterNameHints = "all";
-                    includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                    includeInlayPropertyDeclarationTypeHints = true;
-                    includeInlayVariableTypeHints = true;
-                  };
-                };
-              };
-            };
-          };
+          yamlls.enable = true;
         };
       };
     };
