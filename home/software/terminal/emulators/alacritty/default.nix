@@ -14,7 +14,7 @@
 
       font = {
         normal.family = "DejaVu Sans Mono";
-        size = 18;
+        size = 14;
       };
 
       keyboard.bindings = [
