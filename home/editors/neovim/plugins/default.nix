@@ -1,12 +1,12 @@
 _: {
   imports = [
-    ./colorscheme.nix
-    ./completion.nix
+    ./completion
+    ./lsp
+    ./treesitter
+    ./ui
+    ./telescope
+    ./utils
+
     ./copilot.nix
-    ./harpoon.nix
-    ./lsp.nix
-    ./lualine.nix
-    ./telescope.nix
-    ./treesitter.nix
   ];
 }

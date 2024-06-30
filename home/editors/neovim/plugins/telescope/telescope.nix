@@ -8,7 +8,7 @@ _: {
       };
 
       keymaps = {
-        "<leader>ff" = {
+        "<leader>sf" = {
           action = "find_files";
           options.desc = "[S]earch Project [F]iles";
         };

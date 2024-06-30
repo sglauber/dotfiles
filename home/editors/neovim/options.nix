@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   programs.nixvim = {
     globals = {
       # Disable useless providers
@@ -72,6 +72,7 @@
       # Status line
       laststatus = 3;
       showmode = false;
+      cmdheight = 0;
 
       # Text width
       textwidth = 0;
