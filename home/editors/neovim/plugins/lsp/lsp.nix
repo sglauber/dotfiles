@@ -6,21 +6,6 @@ _: {
 
         keymaps = {
           silent = true;
-          #diagnostic = {
-          #  # Navigate in diagnostics
-          #  "<C-p>" = "goto_prev";
-          #  "<C-n>" = "goto_next";
-          #  "<C-y>" = "confirm";
-          #  "<C-space>" = "complete";
-          #};
-
-          #lspBuf = {
-          #  K = "hover";
-          #  gd = "definition";
-          #  gD = "references";
-          #  gi = "implementation";
-          #  gt = "type_definition";
-          #};
         };
 
         servers = {
@@ -41,6 +26,8 @@ _: {
               };
             };
           };
+          gopls.enable = true;
+          intelephense.enable = true;
           nil-ls.enable = true;
           yamlls.enable = true;
         };
